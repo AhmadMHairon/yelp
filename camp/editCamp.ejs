@@ -1,0 +1,60 @@
+<%- layout("layout/boilerplate.ejs") %>
+  <link rel="stylesheet" href="/stylesheets/Framing.css">
+
+  <h1>Editing Camp ID: <%=campground.id %>
+  </h1>
+  <form action="/camps/<%=campground.id%>?_method=PATCH" method="POST" novalidate class="validated-form"
+    enctype='multipart/form-data'>
+    <div class="mb-3">
+      <label for="Title" class="form-label">Title:</label>
+      <input type="text" class="form-control" id="Title" placeholder="Title" name="campground[title]"
+        value="<%= campground.title  %>" required>
+    </div>
+    <div class="mb-3">
+      <div class="row">
+        <div class="col-md">
+          <label for="Location" class="form-label">Location:</label>
+          <input type="text" class="form-control" id="Location" placeholder="New York" name="campground[location]"
+            value="<%= campground.location  %>" required>
+        </div>
+        <div class="col-md">
+          <label for="Price" class="form-label">Price:</label>
+          <input type="text" class="form-control" id="Price" placeholder="12.33" name="campground[price]"
+            value="<%= campground.price  %>" required>
+        </div>
+      </div>
+    </div>
+
+    <div class="">
+      <label for="Description" class="form-label">Description</label>
+      <textarea class="form-control" id="Description" rows="4" name="campground[description]"
+        required><%= campground.description %></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="formFileMultiple" class="form-label"></label>
+      <input class="form-control" type="file" id="formFileMultiple" name="image" multiple>
+    </div>
+
+    <!-- IMG DELETIGN -->
+
+    <div class="container mb-4">
+      <div class="row">
+        <% campground.image.forEach((img, i)=>{%>
+          <div class="col-6 col-md-4">
+            <div class="frame">
+              <img src='<%= img.url  %> ' />
+              <input type="checkbox" class="checkbox" id="image-<%= i %>" value="<%= img.filename %>"
+                name="deleteImages[]" />
+            </div>
+          </div>
+          <% }) %>
+      </div>
+    </div>
+
+    <div>
+      <a class="btn btn-success mr-2" href="/camps/<%= campground.id %>">click me to return</a>
+      <button class="btn btn-primary mx-2">click me to submit</button>
+    </div>
+
+
+  </form>

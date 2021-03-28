@@ -1,0 +1,33 @@
+<%- layout("layout/boilerplate.ejs") %>
+
+  <h1>create a new camp</h1>
+  <form action="/camps" method="POST" novalidate class="validated-form" enctype='multipart/form-data'>
+    <div class="mb-3">
+      <label for="Title" class="form-label">Title:</label>
+      <input type="text" class="form-control" id="Title" placeholder="Title" name="campground[title]" required>
+    </div>
+    <div class="mb-3">
+      <div class="row">
+        <div class="col-md">
+          <label for="Location" class="form-label">Location:</label>
+          <input type="text" class="form-control" id="Location" placeholder="New York" name="campground[location]"
+            required>
+        </div>
+        <div class="col-md">
+          <label for="Price" class="form-label">Price:</label>
+          <input type="text" class="form-control" id="Price" placeholder="12.33" name="campground[price]" required>
+        </div>
+      </div>
+    </div>
+    <div class="">
+      <label for="Description" class="form-label">Description</label>
+      <textarea class="form-control" id="Description" rows="4" name="campground[description]" required></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="formFileMultiple" class="form-label"></label>
+      <input class="form-control" type="file" id="formFileMultiple" name="image" multiple>
+    </div>
+
+    <button class="btn btn-primary">click me to submit</button>
+
+  </form>
