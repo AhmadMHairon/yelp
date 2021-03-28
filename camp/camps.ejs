@@ -39,7 +39,7 @@
 
 
       <script>
-      const mapToken = '<%- process.env.MAPBOX_TOKEN%>';
+      const mapToken = '<%- process.env.MapBox_Token%>';
       const camps = {features: <%- JSON.stringify(campgrounds)%>};
       //must have save-format off to make this work. furthermore, there is a way to wrap it up in '' or `` (must not use "") and then parse it over the next page. 
       //this method however is BAD. because if the title or location or anything had a single quote, a `, or a " then this will crash.
