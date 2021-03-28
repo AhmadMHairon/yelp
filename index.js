@@ -131,6 +131,7 @@ app.use(
         "data:",
         "https://res.cloudinary.com/dewymkk4h/", //SHOULD MATCH YOUR CLOUDINARY ACCOUNT!
         "https://images.unsplash.com/",
+        "https://www.novascotia.com/",
       ],
       fontSrc: ["'self'", ...fontSrcUrls],
     },
@@ -173,7 +174,7 @@ app.use('/', UserRoute)
 // })
 
 
-app.all('/home', (req, res, next) => {
+app.get('/', (req, res) => {
   res.render('home')
 })
 
